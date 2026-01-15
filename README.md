@@ -54,6 +54,7 @@ No additional files or prerequisite installs are required.
 
 ## Caveats
 
+- The resulting EXE file will be over 100MB.
 - Everything is done non-interactive so you cannot use commands like `Get-Credential` or `Read-Host`
 - The entire user script is wrapped in a script block, invoked, and piped to Out-String.
 
