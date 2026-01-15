@@ -23,8 +23,8 @@ PRs with excessive pings for review will be closed without review.
 ## How It Works
 
 - [Script.ps1](Script.ps1) is embedded in the program assembly as a manifest resource at build time.
-- The csproj file has the required settings to publish the app as a single, self-contained exe file.
-- The program itself uses Hosted PowerShell (Microsoft.PowerShell.SDK) to run the embedded script.
+- The [PSToExe.csproj](PSToExe.csproj) file has the required settings to publish the app as a single, self-contained exe file.
+- The [program](Program.cs) itself uses Hosted PowerShell (Microsoft.PowerShell.SDK) to run the embedded script.
 
 ## How to use
 
@@ -60,3 +60,13 @@ No additional files or prerequisite installs are required.
 - Output order is not guaranteed to be the same as seen in a PowerShell console session.
 - This has been barely tested beyond some basic PowerShell commands. Expect a bunch of things to not work as expected.
 - 64-bit Windows only
+
+## Files
+
+- [LICENSE](LICENSE) - The No-AI MIT License for this project.
+- [README.md](README.md) - Read me file.
+- [Script.ps1](Script.ps1) - The PowerShell script to embed and run on target systems.
+- [Program.cs](Program.cs) - The main C# program that runs Script.ps1 in Hosted PowerShell.
+- [PSToExe.csproj](PSToExe.csproj) - C# project file. Contains the settings for single EXE file publishing.
+- [PSToExe.slnx](PSToExe.slnx) - Visual Studio solution file.
+- [.gitignore](.gitignore) - Git ignore configuration file.
