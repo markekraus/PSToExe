@@ -20,6 +20,7 @@ Don't expect a polished, white-glove experience.
   - [Distributing the App](#distributing-the-app)
   - [Caveats](#caveats)
   - [Files](#files)
+  - [Special Thanks](#special-thanks)
 
 ## No Support
 
@@ -84,3 +85,7 @@ No additional files or prerequisite installs are required.
 - [PSToExe.csproj](PSToExe.csproj) - C# project file. Contains the settings for single EXE file publishing.
 - [PSToExe.slnx](PSToExe.slnx) - Visual Studio solution file.
 - [.gitignore](.gitignore) - Git ignore configuration file.
+
+## Special Thanks
+
+Special thanks to @SeeminglyScience and @jborean93 for some amazing suggestions, simplifications, and being amazing soundboards.
