@@ -10,7 +10,7 @@ Don't expect a polished, white-glove experience.
 ## No Support
 
 There will be no free support for this project.
-GitHub issue will be ignored and/or immediately closed.
+GitHub issues will be ignored and/or immediately closed.
 Do not ping the author(s) or maintainer(s) here or elsewhere for help, questions, assistance, etc.
 You use this project at your own risk and without assistance.
 
