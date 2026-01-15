@@ -56,14 +56,7 @@ No additional files or prerequisite installs are required.
 
 - The resulting EXE file will be over 100MB.
 - Everything is done non-interactive so you cannot use commands like `Get-Credential` or `Read-Host`
-- The entire user script is wrapped in a script block, invoked, and piped to Out-String.
-
-```powershell
-{
-    # Script.ps1 contents
-}.Invoke() | Out-String
-```
-
+- The entire user script is piped to Out-String.
 - Output order is not guaranteed to be the same as seen in a PowerShell console session.
 - This has been barely tested beyond some basic PowerShell commands. Expect a bunch of things to not work as expected.
 - 64-bit Windows only

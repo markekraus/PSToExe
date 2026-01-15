@@ -1,4 +1,5 @@
 ﻿using System.Management.Automation;
+using System.Management.Automation.Runspaces;
 
 // Retrieve the user script from manifest resources
 string scriptBody = string.Empty;
@@ -13,16 +14,6 @@ using (Stream? resourceStream = typeof(Program).Assembly.GetManifestResourceStre
     scriptBody = reader.ReadToEnd();
 }
 
-// Wrapping the user script in a script block and pipping to Out-String
-// will take care of formatting output in a PS-familiar way
-// and maintains table and list formatting.
-// It's not ideal, but it'll do.
-// also... curly braces make this interpolated string painful to read. /shrug
-var script = @$"
-{{
-{scriptBody}
-}}.Invoke() | Out-String";
-
 var ps = PowerShell.Create();
 
 // Prepare to capture the various data streams.
@@ -30,11 +21,13 @@ ps.Streams.Verbose.DataAdded += ConsumePSDataStream;
 ps.Streams.Debug.DataAdded += ConsumePSDataStream;
 ps.Streams.Information.DataAdded += ConsumePSDataStream;
 ps.Streams.Warning.DataAdded += ConsumePSDataStream;
+ps.Streams.Error.DataAdded += ConsumePSDataStream;
 var outputCollection = new PSDataCollection<PSObject>();
 outputCollection.DataAdded += ConsumePSDataStream;
 
 // Run the script
-ps.AddScript(script);
+ps.AddScript(scriptBody).AddCommand("Out-String");
+ps.Commands.Commands[0].MergeMyResults(PipelineResultTypes.Error, PipelineResultTypes.Output);
 ps.Invoke(null, outputCollection);
 
 
@@ -53,6 +46,7 @@ static void ConsumePSDataStream(object? sender, DataAddedEventArgs evtArgs)
         InformationRecord ir => ir.MessageData,
         WarningRecord wr => wr.Message,
         DebugRecord dr => dr.Message,
+        ErrorRecord er => er.ToString(),
         _ => data,
     };
     // It's always Console.WriteLine!
