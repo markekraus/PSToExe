@@ -7,6 +7,20 @@ This project is intended for demo purposes only and has not been written, tested
 This was implemented quick and dirty.
 Don't expect a polished, white-glove experience.
 
+## Table of Contents
+
+- [PSToExe](#pstoexe)
+  - [Table of Contents](#table-of-contents)
+  - [No Support](#no-support)
+  - [Contributions](#contributions)
+  - [How It Works](#how-it-works)
+  - [How to use](#how-to-use)
+  - [Build and Publish](#build-and-publish)
+  - [Running the App](#running-the-app)
+  - [Distributing the App](#distributing-the-app)
+  - [Caveats](#caveats)
+  - [Files](#files)
+
 ## No Support
 
 There will be no free support for this project.
