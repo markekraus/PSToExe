@@ -48,6 +48,8 @@ PRs with excessive pings for review will be closed without review.
 
 ## Build and Publish
 
+Download and install the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
+
 ```bash
 dotnet publish -o .\publish\
 ```
